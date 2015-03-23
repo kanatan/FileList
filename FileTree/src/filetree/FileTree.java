@@ -19,9 +19,19 @@ public class FileTree extends JScrollPane{
 		setTree(path);
 	}
 
+	public FileTree(File path) {
+		setTree(path);
+	}
+
 	public void setTree(String path){
 		DefaultMutableTreeNode top = new DefaultMutableTreeNode(path);
 		createNodes(top, new File(path));
+		setViewportView(new JTree(top));
+	}
+
+	public void setTree(File path){
+		DefaultMutableTreeNode top = new DefaultMutableTreeNode(path);
+		createNodes(top, path);
 		setViewportView(new JTree(top));
 	}
 
